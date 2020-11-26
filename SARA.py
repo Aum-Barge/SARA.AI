@@ -67,12 +67,7 @@ if __name__ == "__main__":
             print(results)
             speak(results)
 
-        elif "play music" in query:
-            speak("Which song sir")
-            search_music = TakeCommand()
-            html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + search_music)
-            video_ids = re.findall(r'watch\?v=(\S{11})', html.read().decode())
-            webbrowser.get(chromedir).open("https://www.youtube.com/watch?v=" + video_ids[0])
+       
 
         elif ("open google" or "open Google") in query:
             webbrowser.get(chromedir).open("google.com")
@@ -89,12 +84,7 @@ if __name__ == "__main__":
 
             webbrowser.get(chromedir).open(url)
 
-        elif 'search youtube for' or 'search YouTube for' in query:
-            query = TakeCommand().lower()
-            speak("Searching")
-            url = "https://www.youtube.com/results?search_query=" + (str(query))
-            webbrowser.get(chromedir).open(url)
-
+        
         elif "tell me time" in query:
             strTime = datetime.datetime.now().strftime("%H:%M")
             speak(f"Sir, the time is {strTime}")
